@@ -7,13 +7,18 @@ public class Words {
 	private char[] letters;
 	private Random random = new Random();
 	private String selectedWord;
+	private boolean rightWordDetected = false;
 
-	private String[] randomWords = { "animals", "happiness", "indefinite", "steady", "birthday", "extreme", "rights",
-			"properties", "ceremony", "independence", "beneath", "information", "students", "employee" };
+//	private String[] randomWords = { "animals", "happiness", "indefinite", "steady", "birthday", "extreme", "rights",
+//			"properties", "ceremony", "independence", "beneath", "information", "students", "employee" };
+
+	private String[] randomWords = { "abc" };
 
 	public Words() {
+
 		selectedWord = randomWords[random.nextInt(randomWords.length)];
 		letters = new char[selectedWord.length()];
+
 	}
 
 	public boolean guess(char letter) {
@@ -30,14 +35,35 @@ public class Words {
 
 	}
 
+	public boolean guess(String word) {
+
+		boolean guessedRight = false;
+
+		if (selectedWord.equalsIgnoreCase(word)) {
+			guessedRight = true;
+			rightWordDetected = true;
+		}
+		return guessedRight;
+
+	}
+
 	public boolean isGuessedRight() {
 
+		if (rightWordDetected) {
+			return true;
+		}
+		
 		for (char letter : letters) {
 			if (letter == '\u0000') {
 				return false;
 			}
 		}
 		return true;
+	}
+
+	public String showWord() {
+
+		return selectedWord;
 	}
 
 	public String toString() {
