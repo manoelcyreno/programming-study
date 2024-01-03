@@ -9,10 +9,8 @@ public class Words {
 	private String selectedWord;
 	private boolean rightWordDetected = false;
 
-//	private String[] randomWords = { "animals", "happiness", "indefinite", "steady", "birthday", "extreme", "rights",
-//			"properties", "ceremony", "independence", "beneath", "information", "students", "employee" };
-
-	private String[] randomWords = { "abc" };
+	private String[] randomWords = { "animals", "happiness", "indefinite", "steady", "birthday", "extreme", "rights",
+			"properties", "ceremony", "independence", "beneath", "information", "students", "employee" };
 
 	public Words() {
 
@@ -52,7 +50,7 @@ public class Words {
 		if (rightWordDetected) {
 			return true;
 		}
-		
+
 		for (char letter : letters) {
 			if (letter == '\u0000') {
 				return false;
